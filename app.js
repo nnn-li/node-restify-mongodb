@@ -10,6 +10,16 @@ var models = require(path.join(__dirname, '/app/models/'));
 var routes = require(path.join(__dirname, '/app/routes/'));
 var dbConnection = require(path.join(__dirname, '/db-connection'));
 
+
+var PKG = require('./package.json');
+
+
+var appinfo = {
+    name:PKG.name,
+    time:new Date(),
+    version: PKG.version
+}
+
 dbConnection();
 
 var server = restify.createServer({
@@ -46,7 +56,7 @@ models();
 routes(server);
 
 server.get('/', function (req, res, next) {
-  res.send(config.app.name);
+  res.send(appinfo);
   return next();
 });
 

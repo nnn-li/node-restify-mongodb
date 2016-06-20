@@ -5,6 +5,8 @@ var path = require('path');
 
 var rootPath = path.normalize(__dirname + '/..');
 
+var PKG = require('../package.json');
+
 var NODE_ENV = process.env.NODE_ENV || 'development';
 var NODE_HOST = process.env.NODE_HOST || '127.0.0.1';
 var NODE_PORT = process.env.NODE_PORT || 3000;
@@ -20,6 +22,7 @@ var config = {
     app: {
       name: APP_NAME + NODE_ENV,
       address: NODE_HOST,
+      version: PKG.version,
       port: NODE_PORT
     },
     db: {
@@ -37,6 +40,7 @@ var config = {
     app: {
       name: APP_NAME + NODE_ENV,
       address: NODE_HOST,
+      version: PKG.version,
       port: NODE_PORT
     },
     db: {
@@ -54,6 +58,7 @@ var config = {
     app: {
       name: APP_NAME + NODE_ENV,
       address: NODE_HOST,
+      version: PKG.version,
       port: NODE_PORT
     },
     db: {

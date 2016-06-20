@@ -28,6 +28,7 @@ module.exports = function (server) {
         return next(error);
       } else {
         res.header('X-Total-Count', widgets.length);
+        res.header('X-Rest-Restapi', 'JulianApi');
         res.send(200, widgets);
         return next();
       }
